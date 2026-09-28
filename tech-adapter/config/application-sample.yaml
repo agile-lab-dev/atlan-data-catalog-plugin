@@ -1,0 +1,70 @@
+# Local development configuration for the Atlan Data Catalog Plugin.
+#
+# Loaded from `config/application.yaml` (relative to the working directory the
+# service is started from — the default path read by AtlanSettings, see
+# src/settings/atlan_settings.py; override with the ATLAN_CONFIG_FILE environment
+# variable). This file is git-ignored — never commit real Connection/DataDomain
+# qualifiedNames or other tenant-specific values if this repository is shared.
+#
+# NEVER put `oauth_client_id` / `oauth_client_secret` in this file (or in any
+# checked-in file). Those two are secrets and must only be provided via environment
+# variables or a local, git-ignored `.env` file:
+#   ATLAN_OAUTH_CLIENT_ID=...
+#   ATLAN_OAUTH_CLIENT_SECRET=...
+#
+# Any field below can also be overridden by its ATLAN_<FIELD_NAME> environment
+# variable (e.g. ATLAN_BASE_URL), which always takes precedence over this file.
+
+base_url: https://myorg.atlan.com
+
+# technology -> environment -> Atlan Connection qualifiedName.
+# Each Connection must already exist in Atlan; qualifiedName format is
+# default/{connectorType}/{epoch} (see the Atlan UI or the pyatlan SDK).
+connection_mapping:
+  databricks:
+    production: "default/databricks/12456789"
+    development: "default/databricks/123456789"
+  # snowflake:
+  #   production: "default/snowflake/1692346000"
+
+# Witboost domain -> Atlan DataDomain qualifiedName.
+# Domains not listed here fall back to using the Witboost domain name as-is.
+domain_mapping:
+  engineering-sample: "Engineering"
+
+# Atlan Custom Metadata type used for Witboost traceability.
+custom_metadata:
+  type-name: Witboost
+  auto-create: true
+
+# Business Terms / Glossary management.
+glossary:
+  strategy: shared #per-domain  or "shared"
+  shared-glossary-name: Witboost
+  # If false, the plugin never creates a glossary automatically: provisioning
+  # fails with GLOSSARY_NOT_FOUND when the resolved glossary (below) does not
+  # already exist in Atlan. Set to false when the API credentials do not have
+  # permission to create glossaries.
+  create-if-missing: true
+  # Only used when strategy is "per-domain". Maps each Witboost domain to the
+  # name of an already-existing Atlan glossary (mirrors domain_mapping above),
+  # for when glossaries cannot be auto-created and/or must not be named after
+  # the Witboost domain.
+  glossary-mapping:
+    engineering-sample: "Engineering"
+  # Only used when strategy is "per-domain". Fallback glossary name for any
+  # Witboost domain not listed in glossary-mapping. If omitted (null), domains
+  # not listed fall back to using the Witboost domain name as-is.
+  default-glossary-name: Witboost
+
+
+# Behavior when an Output Port is unprovisioned: "archive" (soft-delete, default) or
+# "purge" (hard-delete). Overridden per-request to "purge" when removeData is true.
+unprovision:
+  strategy: archive
+
+# Retry behavior for transient Atlan API errors (5xx, timeouts).
+retry:
+  max-attempts: 3
+  backoff-multiplier: 2
+  initial-delay-ms: 1000

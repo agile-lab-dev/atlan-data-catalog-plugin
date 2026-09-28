@@ -1,0 +1,231 @@
+# You can override the included template(s) by including variable overrides
+# SAST customization: https://docs.gitlab.com/ee/user/application_security/sast/#customizing-the-sast-settings
+# Secret Detection customization: https://docs.gitlab.com/ee/user/application_security/secret_detection/#customizing-settings
+# Dependency Scanning customization: https://docs.gitlab.com/ee/user/application_security/dependency_scanning/#customizing-the-dependency-scanning-settings
+# Container Scanning customization: https://docs.gitlab.com/ee/user/application_security/container_scanning/#customizing-the-container-scanning-settings
+# Note that environment variables can be set in several places
+# See https://docs.gitlab.com/ee/ci/variables/#cicd-variable-precedence
+# container_scanning:
+#   variables:
+#     DOCKER_IMAGE: ...
+#     DOCKER_USER: ...
+#     DOCKER_PASSWORD: ...
+stages:
+  - test
+  - build
+
+include:
+  - template: Security/SAST.gitlab-ci.yml
+  - template: Security/Secret-Detection.gitlab-ci.yml
+  - template: Jobs/Container-Scanning.gitlab-ci.yml
+  - project: 'AgileFactory/Witboost.Mesh/witboost.Mesh.CI'
+    ref: 'main'
+    file: 'common/witboost.helm.gitlab-ci.yml'
+
+sast:
+  stage: test
+  artifacts:
+    paths:
+      - gl-sast-report.json
+    reports:
+      sast: gl-sast-report.json
+
+secret_detection:
+  stage: test
+  artifacts:
+    paths:
+      - gl-secret-detection-report.json
+    reports:
+      secret_detection: gl-secret-detection-report.json
+
+fail_on_detection:
+  needs:
+    - semgrep-sast
+    - secret_detection
+  before_script:
+    - apt update -y && apt -y install jq
+  script:
+    - ls -a
+    - jq '.vulnerabilities[] | .severity' gl-sast-report.json | grep 'High\|Critical' && echo 'Vulnerabilities found in gl-sast-report.json' && exit 1 || true;
+    - jq '.vulnerabilities[] | .severity' gl-secret-detection-report.json | grep 'High\|Critical' && echo 'Vulnerabilities found in gl-secret-detection-report.json' && exit 1 || true;
+    - echo 'No serious vulnerabilities found.'
+  rules:
+    - if: $CI_COMMIT_BRANCH
+      exists:
+        - '**/*.py'
+        - '**/*.js'
+        - '**/*.jsx'
+        - '**/*.ts'
+        - '**/*.tsx'
+        - '**/*.c'
+        - '**/*.go'
+        - '**/*.java'
+        - '**/*.cs'
+        - '**/*.html'
+        - '**/*.scala'
+        - '**/*.sc'
+
+compliance:
+  image: python:3.11
+  before_script:
+    - python --version
+    - pip install poetry liccheck
+    - cd tech-adapter
+    - poetry install
+  script:
+    - poetry export --without-hashes --format=requirements.txt > requirements.txt
+    - poetry run pip-audit -r ./requirements.txt -f json > vulnerabilities.json
+    - source $(poetry env info --path)/bin/activate
+    - export PYTHONPATH="$PYTHONPATH:$VIRTUAL_ENV/lib/python3.11/site-packages"
+    - liccheck -r requirements.txt
+  artifacts:
+   when: always
+   paths:
+    - tech-adapter/vulnerabilities.json
+
+linter:
+  stage: test
+  image: python:3.11
+  before_script:
+    - python --version
+    - pip install poetry
+    - cd tech-adapter
+    - poetry install
+  script:
+    - poetry run ruff check .
+
+helm_test:
+  stage: test
+  extends: .witboost.helm.base-job
+  variables:
+    # helm chart's folder
+    CHART_FOLDER: helm
+  script:
+    - !reference [.witboost.helm.clone-scripts, script]
+    - !reference [.witboost.helm.checks, script]
+
+type_checks:
+  stage: test
+  image: python:3.11
+  before_script:
+    - python --version
+    - pip install poetry
+    - cd tech-adapter
+    - poetry install
+  script:
+    - poetry run mypy .
+
+run_tests:
+  stage: test
+  image: python:3.11
+  before_script:
+    - python --version
+    - pip install poetry
+    - cd tech-adapter
+    - poetry install
+  script:
+    - poetry run pytest --cov=src/ tests/. --cov-report=xml
+  coverage: '/(?i)total.*? (100(?:\.0+)?\%|[1-9]?\d(?:\.\d+)?\%)$/'
+  artifacts:
+    reports:
+      coverage_report:
+        coverage_format: cobertura
+        path: tech-adapter/coverage.xml
+
+poetry_build:
+  stage: build
+  image: python:3.11
+  before_script:
+    - python --version
+    - pip install poetry
+    - cd tech-adapter
+    - poetry install
+  script:
+    - poetry build
+  artifacts:
+    paths:
+      - tech-adapter/dist
+
+common_build:
+  stage: build
+  extends: .witboost.helm.base-job
+  script:
+    - !reference [.witboost.helm.clone-scripts, script]
+    - !reference [.witboost.helm.get-version, script]
+    - echo VERSION=${VERSION} > vars.env
+  artifacts:
+    paths:
+      - ./
+    reports:
+      dotenv: vars.env
+
+docker_build:
+  stage: build
+  image: docker:23.0.0
+  services:
+    - docker:23.0.0-dind
+  script:
+    - cd tech-adapter
+    - export COMPOSE_DOCKER_CLI_BUILD=1
+    - export DOCKER_BUILDKIT=1
+    - echo VERSION=${VERSION}
+    - echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER $CI_REGISTRY --password-stdin
+    - docker build -t $CI_REGISTRY_IMAGE:$VERSION .
+    - docker push $CI_REGISTRY_IMAGE:$VERSION
+  needs:
+    - common_build
+
+push_build:
+  stage: build
+  image: alpine
+  before_script:
+    - apk update && apk add curl
+  script:
+    - set +x
+    - ls -al
+    - echo VERSION=${VERSION}
+    - cp tech-adapter/dist/*.whl build-${VERSION}.whl
+    - export NAME_WHEEL=$(basename *.whl)
+    - ls -al
+    - echo ${NAME_WHEEL}
+    - echo ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/builds/0.1.0/${NAME_WHEEL}
+    - 'curl --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file ${NAME_WHEEL} "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/builds/0.1.0/${NAME_WHEEL}"'
+  needs:
+    - poetry_build
+    - common_build
+
+helm_package:
+  stage: build
+  extends: .witboost.helm.deploy
+  needs:
+    - docker_build
+
+container_scanning:
+  stage: build
+  variables:
+    GIT_STRATEGY: fetch
+    CS_DOCKERFILE_PATH: tech-adapter/
+    CS_IMAGE: $CI_REGISTRY_IMAGE:$VERSION
+  script:
+    - 'echo Version: $VERSION'
+    - 'echo Image to be scanned: $CS_IMAGE'
+    - gtcs scan
+  needs:
+    - docker_build
+    - common_build
+  dependencies:
+    - common_build
+
+check_vulnerabilities_analysis:
+  stage : build
+  before_script:
+    - apt update -y && apt -y install jq
+  script:
+    - ls -a
+    - jq '.vulnerabilities[] | .severity' gl-container-scanning-report.json | grep 'High\|Critical' && echo 'Vulnerabilities found in gl-container-scanning-report.json' && exit 1|| true;
+    - jq '.vulnerabilities[] | .severity' gl-dependency-scanning-report.json | grep 'High\|Critical' && echo 'Vulnerabilities found in gl-dependency-scanning-report.json' && exit 1|| true;
+    - echo 'No serious vulnerabilities found.'
+  needs:
+    - container_scanning
+  rules:
+    - if: $CI_COMMIT_BRANCH

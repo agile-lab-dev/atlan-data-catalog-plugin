@@ -1,0 +1,52 @@
+id: urn:dmb:dp:finance:risk-finance:0
+name: Risk Finance
+fullyQualifiedName: Risk Finance
+description: Risk metrics and cashflow data product for the finance domain
+kind: dataproduct
+domain: finance
+version: 0.1.0
+environment: production
+dataProductOwner: user:jane.doe_agilelab.it
+ownerGroup: group:finance-owners
+devGroup: group:finance-dev
+informationSLA: 2BD
+maturity: Tactical
+billing: { }
+tags: [ ]
+specific: { }
+domainId: urn:dmb:dmn:finance
+useCaseTemplateId: urn:dmb:utm:dataproduct-template:0.0.0
+infrastructureTemplateId: urn:dmb:itm:dataproduct-provisioner:1
+components:
+  - kind: outputport
+    id: urn:dmb:cmp:finance:risk-finance:0:orders-output-port
+    description: Orders output port for downstream consumption
+    name: Orders Output Port
+    fullyQualifiedName: Finance - risk-finance - version 0 - Orders Output Port
+    version: 0.0.0
+    infrastructureTemplateId: urn:dmb:itm:databricks-provisioner:1
+    useCaseTemplateId: urn:dmb:utm:databricks-outputport-template:0.0.0
+    dependsOn: [ ]
+    platform: Databricks
+    technology: Databricks
+    outputPortType: SQL
+    specific:
+      catalogName: finance_prod
+      schemaName: cashflow
+      tableName: orders_clean
+      catalogNameOP: risk-finance
+      schemaNameOP: orders-output-port
+      viewNameOP: orders_view
+    dataContract:
+      schema:
+        - name: order_id
+          description: Unique order identifier
+          dataType: TEXT
+          tags: [ ]
+        - name: order_date
+          description: Date the order was placed
+          dataType: DATE
+          tags: [ ]
+    tags: [ ]
+    sampleData: { }
+    semanticLinking: [ ]

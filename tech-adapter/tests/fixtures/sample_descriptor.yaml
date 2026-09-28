@@ -1,0 +1,291 @@
+dataProductOwnerDisplayName: Jane Doe
+projectOwner: user:default/jane.doe_example.com
+projectOwnerDisplayName: Jane Doe
+environment: development
+domain: sales_analytics
+projectKind: system
+kind: dataproduct
+domainId: urn:dmb:dmn:sales_analytics
+id: urn:dmb:dp:sales_analytics:sales_orders:0
+description: test
+devGroup: group:sample_org_playground
+ownerGroup: jane.doe_example.com
+dataProductOwner: user:default/jane.doe_example.com
+email: jane.doe@example.com
+version: 0.1.0-SNAPSHOT-2
+fullyQualifiedName: Sales Analytics - sales_orders - version 0
+name: sales_orders
+normalizedName: sales_orders
+informationSLA: null
+maturity: null
+criticality: Medium
+sensitivity: Public
+useCaseTemplateId: urn:dmb:utm:dataproduct-template:0.0.0
+infrastructureTemplateId: urn:dmb:itm:dataproduct-provisioner:1
+billing: {}
+tags:
+  - tagFQN: demo
+    source: Glossary
+    labelType: Manual
+    state: Confirmed
+  - tagFQN: tag1
+    source: Glossary
+    labelType: Manual
+    state: Confirmed
+specific:
+  databricks:
+    catalogName: sales_orders-development
+    schemaName: default
+    __metadata:
+      catalogName:
+        development: sales_orders-development
+        qa: sales_orders-qa
+        production: sales_orders-production
+      schemaName:
+        development: default
+        qa: default
+        production: default
+shoppable: false
+taxonomy:
+  id: urn:dmb:taxonomy:data-products-taxonomy
+  name: data-products-taxonomy
+components:
+  - kind: outputport
+    id: urn:dmb:cmp:sales_analytics:sales_orders:0:output-port-orders
+    description: Output Port that exposes information of this Data Product to users
+      and other data products.
+    name: Orders Output Port
+    fullyQualifiedName: Sales Analytics - sales_orders - version 0 - Orders Output Port
+    version: 0.0.0
+    infrastructureTemplateId: urn:dmb:itm:databricks-provisioner:1
+    useCaseTemplateId: urn:dmb:utm:databricks-outputport-template-sodaDQ:0.0.0
+    dependsOn: []
+    platform: Azure
+    technology: Databricks
+    outputPortType: SQL
+    tags: []
+    creationDate: 2026-09-23T16:23:47.227Z
+    startDate: 2026-09-23T16:23:47.227Z
+    processDescription: null
+    __dataContractEnabled: true
+    dataContract:
+      apiVersion: v3.2.0
+      kind: DataContract
+      id: sales_analytics.sales_orders.0.output-port-orders
+      version: 0.0.0
+      status: active
+      tags: []
+      schema:
+        - name: orders_view
+          physicalName: orders_view
+          physicalType: view
+          logicalType: object
+          description: Output Port that exposes information of this Data Product to users
+            and other data products.
+          properties:
+            - name: id
+              logicalType: integer
+              physicalType: INT
+              description: Info on the column value
+              primaryKey: false
+              required: false
+              unique: false
+              criticalDataElement: false
+              tags:
+                - bt1
+                - bt2
+            - name: name
+              logicalType: string
+              physicalType: VARCHAR(100)
+              description: Info on the column value
+              primaryKey: false
+              required: false
+              unique: false
+              criticalDataElement: false
+              tags: []
+          quality:
+            - id: row_count_1
+              type: custom
+              engine: soda
+              implementation: |
+                row_count:
+                  threshold:
+                    must_be_greater_than: 15
+            - id: duplicate_count_2
+              type: custom
+              engine: soda
+              implementation: |
+                duplicate:
+                  threshold:
+                    must_be_less_than_or_equal: 2
+                column: name
+            - id: max_3
+              type: custom
+              engine: soda
+              implementation: |
+                aggregate:
+                  function: max
+                  threshold:
+                    must_be_less_than_or_equal: 125
+                column: id
+      slaProperties:
+        - id: frequency
+          property: frequency
+          value: null
+          description: How often the data is refreshed.
+        - id: latency
+          property: latency
+          value: null
+          description: Maximum delay between an event occurring and the data being
+            available.
+        - id: availability
+          property: availability
+          value: null
+          description: Uptime of the Output Port.
+    termsAndConditions: null
+    endpoint: null
+    dataSharingAgreement:
+      purpose: null
+      billing: null
+      security: null
+      intendedUsage: null
+      limitations: null
+      lifeCycle: null
+      confidentiality: null
+    sampleData: {}
+    semanticLinking: []
+    specific:
+      workspace: https://adb-1234567890123456.1.azuredatabricks.net
+      workspaceOP: https://adb-1234567890123456.1.azuredatabricks.net
+      catalogName: sample_catalog
+      schemaName: sample_schema
+      tableName: sample_table
+      metastore: metastore
+      catalogNameOP: sample-catalog-development
+      schemaNameOP: sales_orders-0-output-port-orders
+      viewNameOP: orders_view
+      sqlWarehouseName: Serverless Starter Warehouse
+    consumable: true
+    shoppable: true
+    info:
+      publicInfo:
+        tableID:
+          type: string
+          label: Table ID
+          value: 11111111-1111-1111-1111-111111111111
+        tableFullName:
+          type: string
+          label: Table full name
+          value: sample-catalog-development.sales_orders-0-output-port-orders.orders_view
+        tableUrl:
+          type: string
+          label: Table URL
+          value: Open table in Databricks
+          href: https://adb-1234567890123456.1.azuredatabricks.net/explore/data/sample-catalog-development/sales_orders-0-output-port-orders/orders_view
+      privateInfo:
+        tableID:
+          type: string
+          label: Table ID
+          value: 11111111-1111-1111-1111-111111111111
+        tableFullName:
+          type: string
+          label: Table full name
+          value: sample-catalog-development.sales_orders-0-output-port-orders.orders_view
+        tableUrl:
+          type: string
+          label: Table URL
+          value: Open table in Databricks
+          href: https://adb-1234567890123456.1.azuredatabricks.net/explore/data/sample-catalog-development/sales_orders-0-output-port-orders/orders_view
+    components:
+      - fullyQualifiedName: Sales Analytics - sales_orders - version 0 - Soda Workload
+        description: Soda Data Quality Guardian monitoring the Data Contract of this
+          Output Port
+        version: 0.0.0
+        useCaseTemplateId: urn:dmb:utm:soda-workload-template:0.0.0
+        platform: Databricks
+        technology: Soda
+        outputPortType: null
+        tags: []
+        creationDate: 2026-09-23T16:23:47.227Z
+        startDate: 2026-09-23T16:23:47.227Z
+        processDescription: null
+        dataContract: null
+        termsAndConditions: null
+        endpoint: null
+        dataSharingAgreement: null
+        sampleData: null
+        semanticLinking: null
+        specific:
+          databricks:
+            dataSourceName: sample-catalog-development
+            outputPortIds:
+              - urn:dmb:cmp:sales_analytics:sales_orders:0:output-port-orders
+        name: soda-workload
+        kind: workload
+        infrastructureTemplateId: urn:dmb:itm:soda-tech-adapter:0
+        consumable: false
+        dependsOn: []
+        workloadType: Internal Process
+        connectionType: HOUSEKEEPING
+        shoppable: false
+        id: urn:dmb:cmp:sales_analytics:sales_orders:0:output-port-orders:soda-workload
+        info:
+          publicInfo:
+            sodaProvisioningResult:
+              - outputPortId: urn:dmb:cmp:sales_analytics:sales_orders:0:output-port-orders
+                sodaContractId: 22222222-2222-2222-2222-222222222222
+                sodaDatasetId: 33333333-3333-3333-3333-333333333333
+                dataSourceName: sample_catalog
+          privateInfo: {}
+      - fullyQualifiedName: Sales Analytics - sales_orders - version 0 - Soda Guardian Job
+        description: Databricks job that executes the Soda Data Quality checks and
+          publishes results to Witboost
+        version: 0.0.0
+        useCaseTemplateId: urn:dmb:utm:databricks-guardian-sodaDQ:0.0.0
+        platform: Azure
+        technology: Databricks
+        outputPortType: null
+        tags: []
+        creationDate: 2026-09-23T16:23:47.227Z
+        startDate: 2026-09-23T16:23:47.227Z
+        processDescription: null
+        dataContract: null
+        termsAndConditions: null
+        endpoint: null
+        dataSharingAgreement: null
+        sampleData: null
+        semanticLinking: null
+        specific:
+          workspace: https://adb-1234567890123456.1.azuredatabricks.net
+          jobName: sales_analytics_development_sales_orders_0_output-port-orders_soda_guardian
+          description: Soda Data Quality Guardian job for Orders Output Port
+          repoPath: sales_orders_0/output-port-orders
+          metastore: metastore
+          runAsPrincipalName: null
+          git:
+            gitRepoUrl: https://gitlab.example.com/sample-org/mesh.repository/sales_analytics/sales_orders/outputport23sep3
+            gitReference: master
+            gitReferenceType: BRANCH
+            gitPath: guardian_notebook/soda_guardian.py
+          scheduling:
+            cronExpression: 0 0 2 * * ?
+            javaTimezoneId: UTC
+          executionMode: warehouse
+          sqlWarehouseName: Serverless Starter Warehouse
+        name: soda-guardian-job
+        dependsOn:
+          - urn:dmb:cmp:sales_analytics:sales_orders:0:output-port-orders:soda-workload
+        kind: workload
+        infrastructureTemplateId: urn:dmb:itm:databricks-provisioner:1
+        consumable: false
+        workloadType: Internal Process
+        connectionType: HOUSEKEEPING
+        __dataContractGuardianSpec:
+          guards:
+            - dataContractId: urn:dmb:cmp:sales_analytics:sales_orders:0:output-port-orders
+              monitoringSchedule:
+                frequency: 0 0 2 * * ?
+                tolerancyWindowLength: PT1D
+          dataSourceName: sample-catalog-development
+        shoppable: false
+        id: urn:dmb:cmp:sales_analytics:sales_orders:0:output-port-orders:soda-guardian-job

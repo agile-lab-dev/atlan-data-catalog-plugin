@@ -1,0 +1,65 @@
+# Default values for atlan-data-catalog-plugin.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# -- Docker Registry Secret name used to access a private repo
+dockerRegistrySecretName: regcred
+
+image:
+  # -- Image repository
+  registry: registry.gitlab.com/agilefactory/witboost.mesh/provisioning/witboost.mesh.provisioning.datacatalogplugin/witboost.mesh.provisioning.datacatalogplugin.atlan
+  # -- Image tag
+  tag: latest
+  # -- The imagePullPolicy for a container and the tag of the image affect when the kubelet attempts to pull (download) the specified image.
+  pullPolicy: Always
+
+# -- Non-secret application configuration, mounted into the container as
+# `config/application.yaml` (see tech-adapter/src/settings/atlan_settings.py -
+# `AtlanSettings`). When set, this full YAML string REPLACES the chart's
+# default `files/application.yaml` entirely (it is not merged). Every
+# resulting key becomes an `AtlanSettings` field and can still be overridden
+# individually by an environment variable named `ATLAN_<FIELD>`. Do NOT put
+# secrets here.
+# e.g:
+# configOverride: |
+#   base_url: "https://tenant.atlan.com"
+#   connection_mapping:
+#     databricks:
+#       production: "default/databricks/1692345678"
+configOverride: ""
+
+# -- Name of a pre-existing Kubernetes Secret holding ATLAN_OAUTH_CLIENT_ID and
+# ATLAN_OAUTH_CLIENT_SECRET. Leave empty to skip mounting secrets (e.g. local
+# smoke tests). The secret itself is never templated by this chart; create
+# it out of band (see helm/sample for an ExternalSecret example).
+secretName: ""
+
+# -- define extra variables to add to the container(s), in addition to what
+# `secretName` (ATLAN_OAUTH_CLIENT_ID/ATLAN_OAUTH_CLIENT_SECRET) and
+# `configOverride` already inject. You do NOT need to list the Atlan
+# credentials here.
+# e.g:
+# extraEnvVars:
+#   - name: FOO
+#     value: "10"
+extraEnvVars: []
+
+# -- readiness probe spec
+readinessProbe: {}
+
+# -- liveness probe spec
+livenessProbe: {}
+
+# -- security context spec
+securityContext:
+  runAsUser: 1001
+  allowPrivilegeEscalation: false
+  runAsNonRoot: true
+
+# -- resources spec
+resources: {}
+
+# -- Allows you to specify common labels
+labels: {}
+
+
