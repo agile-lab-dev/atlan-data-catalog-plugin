@@ -1,0 +1,9 @@
+apiVersion: v2
+name: atlan-data-catalog-plugin
+description: Atlan Data Catalog Plugin
+type: application
+version: 0.0.1
+appVersion: "0.0.1"
+maintainers:
+  - name: AgileLab
+    url: http://agilelab.it

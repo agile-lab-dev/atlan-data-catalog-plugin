@@ -1,0 +1,440 @@
+<mxfile host="Electron" pages="4">
+  <diagram id="atlan-entity-mapping" name="Entity Mapping">
+    <mxGraphModel dx="2054" dy="1136" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1640" pageHeight="980" background="light-dark(#ffffff, #121212)" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="em-title" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontFamily=Helvetica;fontSize=20;strokeColor=none;fillColor=none;" value="Entity Mapping — Witboost → Atlan" vertex="1">
+          <mxGeometry height="40" width="700" x="470" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="em-h-wb" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontFamily=Helvetica;fontSize=15;strokeColor=none;fillColor=none;" value="Witboost" vertex="1">
+          <mxGeometry height="30" width="220" x="130" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="em-h-atlan" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontFamily=Helvetica;fontSize=15;fontColor=#1565c0;strokeColor=none;fillColor=none;" value="ATLAN" vertex="1">
+          <mxGeometry height="30" width="220" x="1140" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="em-wb-dp" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=14;fontStyle=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Data Product" vertex="1">
+          <mxGeometry height="60" width="220" x="130" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="em-at-dp" parent="1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;size=18;fontFamily=Helvetica;fontSize=13;fontStyle=1;fillColor=#1565c0;strokeColor=#0d47a1;fontColor=#ffffff;" value="DataProduct" vertex="1">
+          <mxGeometry height="60" width="220" x="1140" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="em-arr-dp" edge="1" parent="1" source="em-wb-dp" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=2;strokeColor=#999999;endArrow=open;fontFamily=Helvetica;fontSize=12;align=center;verticalAlign=middle;" target="em-at-dp" value="maps to">
+          <mxGeometry relative="1" x="0.0025" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="em-wb-op" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=14;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Output Port" vertex="1">
+          <mxGeometry height="60" width="220" x="130" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="em-at-table" parent="1" style="shape=internalStorage;whiteSpace=wrap;html=1;backgroundOutline=1;verticalAlign=middle;fontFamily=Helvetica;fontSize=13;fillColor=#e3f2fd;strokeColor=#1565c0;" value="Table / View" vertex="1">
+          <mxGeometry height="60" width="220" x="1140" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="em-arr-op" edge="1" parent="1" source="em-wb-op" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=2;strokeColor=#999999;endArrow=open;fontFamily=Helvetica;fontSize=12;" target="em-at-table" value="maps to">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="em-note-op" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;strokeColor=none;fillColor=none;fontStyle=2;" value="one per Output Port · type determined by technology field" vertex="1">
+          <mxGeometry height="22" width="380" x="551" y="284" as="geometry" />
+        </mxCell>
+        <mxCell id="em-wb-bt" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=14;fontStyle=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Business Term" vertex="1">
+          <mxGeometry height="60" width="220" x="130" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="em-at-gloss" parent="1" style="shape=tape;whiteSpace=wrap;html=1;size=0.15;fontFamily=Helvetica;fontSize=13;fillColor=#9673a6;strokeColor=#4a148c;fontColor=#ffffff;" value="GlossaryTerm" vertex="1">
+          <mxGeometry height="60" width="220" x="1140" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="em-arr-bt" edge="1" parent="1" source="em-wb-bt" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=2;strokeColor=#999999;endArrow=open;fontFamily=Helvetica;fontSize=12;" target="em-at-gloss" value="maps to">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="em-wb-dom" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=14;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Data Domain" vertex="1">
+          <mxGeometry height="60" width="220" x="130" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="em-at-domain" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=13;fontStyle=1;fillColor=#bbdefb;strokeColor=#1565c0;strokeWidth=2;" value="DataDomain" vertex="1">
+          <mxGeometry height="60" width="220" x="1140" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="em-arr-dom" edge="1" parent="1" source="em-wb-dom" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=2;strokeColor=#999999;endArrow=open;fontFamily=Helvetica;fontSize=12;" target="em-at-domain" value="maps to">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="em-note-dom" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;strokeColor=none;fillColor=none;fontStyle=2;" value="pre-provisioned by admin · plugin links DataProduct to it" vertex="1">
+          <mxGeometry height="22" width="360" x="561" y="524" as="geometry" />
+        </mxCell>
+        <mxCell id="em-note-conn" parent="1" style="shape=callout;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;align=left;spacingLeft=8;connectable=0;" value="&lt;b&gt;Connection&lt;/b&gt; — pre-provisioned by admin, mapped via plugin configuration. The plugin upserts Database and Schema inside it, but never creates or deletes the Connection itself." vertex="1">
+          <mxGeometry height="80" width="440" x="130" y="650" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="atlan-provisioning" name="Provisioning">
+    <mxGraphModel dx="2054" dy="1136" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1640" pageHeight="980" background="light-dark(#ffffff, #121212)" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="wb-box" parent="1" style="rounded=0;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Helvetica;fontSize=16;verticalAlign=middle;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" value="Witboost" vertex="1">
+          <mxGeometry height="60" width="200" x="216" y="215" as="geometry" />
+        </mxCell>
+        <mxCell id="arr-dp-wb" edge="1" parent="1" source="wo4eRjMWRTFc46XJJZ8a-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=2;strokeColor=#d6b656;fontFamily=Helvetica;fontSize=13;endArrow=classic;" target="wb-box" value="Deploy/&#xa;update DP">
+          <mxGeometry relative="1" x="-0.2" y="-25" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="156.00000000000023" y="255.00000000000023" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="coord" parent="1" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=16;fillColor=#fff2cc;strokeColor=#d6b656;rounded=0;hachureGap=4;" value="Provisioning Coordinator" vertex="1">
+          <mxGeometry height="110" width="200" x="216" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="arr-wb-coord" edge="1" parent="1" source="wb-box" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=1;strokeColor=#d6b656;fontFamily=Helvetica;fontSize=13;endArrow=classic;" target="coord" value="Deploy, update DP">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="plugin-box" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;strokeWidth=2;fontSize=14;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;fontFamily=Helvetica;" value="Atlan Data Catalog Plugin" vertex="1">
+          <mxGeometry height="555" width="420" x="616" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="api-bar" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;strokeWidth=2;fontSize=13;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="A&lt;br&gt;P&lt;br&gt;I" vertex="1">
+          <mxGeometry height="391" width="28" x="616" y="306" as="geometry" />
+        </mxCell>
+        <mxCell id="arr-coord-plugin" edge="1" parent="1" source="coord" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=2;strokeColor=#6c8ebf;fontFamily=Helvetica;fontSize=13;endArrow=classic;align=center;verticalAlign=middle;" target="plugin-box" value="Data Product descriptor">
+          <mxGeometry relative="1" x="-0.1" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="644" y="415" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-sync" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontFamily=Helvetica;fontSize=13;strokeColor=none;fillColor=none;" value="Synchronous operations" vertex="1">
+          <mxGeometry height="22" width="370" x="652" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="p0" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;align=left;fontFamily=Helvetica;fontSize=13;spacingLeft=6;" value="Phase 0 — Parse descriptor" vertex="1">
+          <mxGeometry height="42" width="370" x="652" y="223" as="geometry" />
+        </mxCell>
+        <mxCell id="p1" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;align=left;fontFamily=Helvetica;fontSize=13;spacingLeft=6;" value="Phase 1 — Resolve Output Port types" vertex="1">
+          <mxGeometry height="42" width="370" x="652" y="277" as="geometry" />
+        </mxCell>
+        <mxCell id="p-prereq" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;align=left;fontFamily=Helvetica;fontSize=13;spacingLeft=6;" value="Phase 2 — Prerequisite Metadata Definitions (Custom Metadata typedef, Business Terms)" vertex="1">
+          <mxGeometry height="42" width="370" x="652" y="331" as="geometry" />
+        </mxCell>
+        <mxCell id="p2" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;align=left;fontFamily=Helvetica;fontSize=13;spacingLeft=6;" value="Phase 3 — Upsert parent hierarchy (Database → Schema)" vertex="1">
+          <mxGeometry height="42" width="370" x="652" y="385" as="geometry" />
+        </mxCell>
+        <mxCell id="p3" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;align=left;fontFamily=Helvetica;fontSize=13;spacingLeft=6;" value="Phase 4 — Upsert technical assets (Table / View)" vertex="1">
+          <mxGeometry height="42" width="370" x="652" y="439" as="geometry" />
+        </mxCell>
+        <mxCell id="p4" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;align=left;fontFamily=Helvetica;fontSize=13;spacingLeft=6;" value="Phase 5 — Apply Custom Metadata" vertex="1">
+          <mxGeometry height="42" width="370" x="652" y="493" as="geometry" />
+        </mxCell>
+        <mxCell id="p5" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;align=left;fontFamily=Helvetica;fontSize=13;spacingLeft=6;" value="Phase 6 — Upsert DataProduct &amp; link assets" vertex="1">
+          <mxGeometry height="42" width="370" x="652" y="547" as="geometry" />
+        </mxCell>
+        <mxCell id="p6" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;align=left;fontFamily=Helvetica;fontSize=13;spacingLeft=6;" value="Phase 7 — Associate Business Terms" vertex="1">
+          <mxGeometry height="42" width="370" x="652" y="601" as="geometry" />
+        </mxCell>
+        <mxCell id="p-report" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;align=left;fontFamily=Helvetica;fontSize=13;spacingLeft=6;" value="Report outcome (ProvisioningStatus)" vertex="1">
+          <mxGeometry height="42" width="370" x="652" y="655" as="geometry" />
+        </mxCell>
+        <mxCell id="atlan-platform" parent="1" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;strokeWidth=1;" value="" vertex="1">
+          <mxGeometry height="647" width="510" x="1113.5" y="168" as="geometry" />
+        </mxCell>
+        <mxCell id="atlan-title" parent="1" style="text;html=1;align=left;verticalAlign=top;strokeColor=none;fillColor=none;fontSize=17;" value="&lt;b&gt;&lt;font color=&quot;#1565c0&quot; style=&quot;font-size: 17px;&quot;&gt;ATLAN&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="120" x="1131" y="178" as="geometry" />
+        </mxCell>
+        <mxCell id="at-domain" parent="1" style="ellipse;whiteSpace=wrap;html=1;verticalAlign=top;spacingTop=10;fillColor=#bbdefb;strokeColor=#1565c0;strokeWidth=2;fontSize=13;" value="&lt;b&gt;DataDomain&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;pre-provisioned by admin&lt;/font&gt;" vertex="1">
+          <mxGeometry height="160" width="475" x="1131" y="208" as="geometry" />
+        </mxCell>
+        <mxCell id="at-dp" parent="1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;size=22;verticalAlign=top;spacingTop=5;fillColor=#1565c0;strokeColor=#0d47a1;fontColor=#ffffff;fontSize=12;" value="&lt;b&gt;DataProduct&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;qualifiedName: {domain_qn}/product/{name}-{env}-v{major}&lt;/font&gt;" vertex="1">
+          <mxGeometry height="66" width="370" x="1183.5" y="267" as="geometry" />
+        </mxCell>
+        <mxCell id="at-conn" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;spacingTop=7;fillColor=#bbdefb;strokeColor=#1565c0;strokeWidth=2;fontSize=13;" value="&lt;b&gt;Connection&lt;/b&gt; &lt;font style=&quot;font-size: 10px;&quot;&gt;(pre-provisioned · QN: default/technology/{epoch})&lt;/font&gt;" vertex="1">
+          <mxGeometry height="235" width="475" x="1131" y="382" as="geometry" />
+        </mxCell>
+        <mxCell id="at-db" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;spacingTop=5;fillColor=#1565c0;strokeColor=#0d47a1;fontColor=#ffffff;fontSize=13;" value="Database" vertex="1">
+          <mxGeometry height="180" width="445" x="1146" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="at-schema" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;spacingTop=5;fillColor=#1976d2;strokeColor=#0d47a1;fontColor=#ffffff;fontSize=13;" value="Schema" vertex="1">
+          <mxGeometry height="132" width="415" x="1161" y="455" as="geometry" />
+        </mxCell>
+        <mxCell id="at-table" parent="1" style="shape=internalStorage;whiteSpace=wrap;html=1;backgroundOutline=1;verticalAlign=middle;spacingTop=5;fillColor=#e3f2fd;strokeColor=#1565c0;fontSize=13;" value="Table / View" vertex="1">
+          <mxGeometry height="84" width="385" x="1176" y="492" as="geometry" />
+        </mxCell>
+        <mxCell id="at-cm" parent="1" style="shape=internalStorage;whiteSpace=wrap;html=1;backgroundOutline=1;verticalAlign=middle;spacingTop=6;fillColor=#fce4ec;strokeColor=#e91e63;fontSize=12;" value="Custom Metadata &lt;i&gt;Witboost&lt;/i&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;dataProductId · componentId · domainId · environment&lt;/font&gt;" vertex="1">
+          <mxGeometry height="84" width="475" x="1131" y="628" as="geometry" />
+        </mxCell>
+        <mxCell id="at-gloss1" parent="1" style="shape=tape;whiteSpace=wrap;html=1;size=0.2;fontSize=12;fillColor=#9673a6;strokeColor=#4a148c;fontColor=#ffffff;" value="GlossaryTerm (upsert)" vertex="1">
+          <mxGeometry height="22" width="200" x="1136" y="725" as="geometry" />
+        </mxCell>
+        <mxCell id="at-gloss2a" parent="1" style="shape=tape;whiteSpace=wrap;html=1;size=0.2;fontSize=12;fillColor=#9673a6;strokeColor=#4a148c;fontColor=#ffffff;" value="GlossaryTerm" vertex="1">
+          <mxGeometry height="22" width="200" x="1268.5" y="747" as="geometry" />
+        </mxCell>
+        <mxCell id="at-gloss2b" parent="1" style="shape=tape;whiteSpace=wrap;html=1;size=0.2;fontSize=12;fillColor=#9673a6;strokeColor=#4a148c;fontColor=#ffffff;" value="GlossaryTerm" vertex="1">
+          <mxGeometry height="18" width="180" x="1426" y="769" as="geometry" />
+        </mxCell>
+        <mxCell id="wo4eRjMWRTFc46XJJZ8a-4" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.user;" value="DP team" vertex="1">
+          <mxGeometry height="78" width="78" x="16" y="206" as="geometry" />
+        </mxCell>
+        <mxCell id="wo4eRjMWRTFc46XJJZ8a-5" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="70" width="110" x="446" y="333" as="geometry" />
+        </mxCell>
+        <mxCell id="yaml-grp" connectable="0" parent="wo4eRjMWRTFc46XJJZ8a-5" style="group;fontSize=13;" value="" vertex="1">
+          <mxGeometry height="43" width="40" x="35" y="27" as="geometry" />
+        </mxCell>
+        <mxCell id="yaml-note" parent="yaml-grp" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;size=13;fontSize=13;" value="" vertex="1">
+          <mxGeometry height="43" width="40" as="geometry" />
+        </mxCell>
+        <mxCell id="yaml-l1" edge="1" parent="yaml-grp" style="endArrow=none;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="3.33" y="18.31" as="sourcePoint" />
+            <mxPoint x="36.67" y="18.31" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yaml-l2" edge="1" parent="yaml-grp" style="endArrow=none;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="3.33" y="24.57" as="sourcePoint" />
+            <mxPoint x="36.67" y="24.57" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yaml-l3" edge="1" parent="yaml-grp" style="endArrow=none;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="3.33" y="30.71" as="sourcePoint" />
+            <mxPoint x="36.67" y="30.71" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yaml-label" parent="wo4eRjMWRTFc46XJJZ8a-5" style="text;html=1;align=center;verticalAlign=middle;strokeColor=none;fillColor=none;fontFamily=Helvetica;fontSize=13;" value="yaml descriptor" vertex="1">
+          <mxGeometry height="28" width="110" as="geometry" />
+        </mxCell>
+        <mxCell id="arr-p5-dp" edge="1" parent="1" source="p5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=2;strokeColor=#1565c0;endArrow=open;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="at-dp" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1022" y="570" />
+              <mxPoint x="1101" y="570" />
+              <mxPoint x="1101" y="300" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arr-p3-table" edge="1" parent="1" source="p3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=2;strokeColor=#6c8ebf;endArrow=open;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=1;" target="at-table" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr-p6-gloss" edge="1" parent="1" source="p6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=2;strokeColor=#9673a6;endArrow=open;entryX=0;entryY=0.65;entryDx=0;entryDy=0;entryPerimeter=0;curved=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="at-gloss1" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1066" y="622" />
+              <mxPoint x="1066" y="739.3" />
+            </Array>
+            <mxPoint x="1131" y="762" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arr-p4-cm" edge="1" parent="1" source="p4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=2;strokeColor=#e91e63;endArrow=open;curved=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="at-cm" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr-p2-conn" edge="1" parent="1" source="p2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=2;strokeColor=#1565c0;endArrow=open;entryX=0.002;entryY=0.128;entryDx=0;entryDy=0;curved=1;entryPerimeter=0;" target="at-db" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="atlan-unprovisioning" name="Unprovisioning">
+    <mxGraphModel dx="3694" dy="1136" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1640" pageHeight="980" background="light-dark(#FFFFFF,#121212)" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="u-dp-team" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.user;" value="DP team" vertex="1">
+          <mxGeometry height="78" width="78" x="-1603" y="364" as="geometry" />
+        </mxCell>
+        <mxCell id="u-wb-box" parent="1" style="rounded=0;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Helvetica;fontSize=16;verticalAlign=middle;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" value="Witboost" vertex="1">
+          <mxGeometry height="60" width="200" x="-1403" y="373" as="geometry" />
+        </mxCell>
+        <mxCell id="u-arr-dp-wb" edge="1" parent="1" source="u-dp-team" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=2;strokeColor=#d6b656;fontFamily=Helvetica;fontSize=13;endArrow=classic;" target="u-wb-box" value="Undeploy DP">
+          <mxGeometry relative="1" x="-0.2" y="-25" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="u-coord" parent="1" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=16;fillColor=#fff2cc;strokeColor=#d6b656;rounded=0;hachureGap=4;" value="Provisioning Coordinator" vertex="1">
+          <mxGeometry height="110" width="200" x="-1403" y="518" as="geometry" />
+        </mxCell>
+        <mxCell id="u-arr-wb-coord" edge="1" parent="1" source="u-wb-box" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=1;strokeColor=#d6b656;fontFamily=Helvetica;fontSize=13;endArrow=classic;" target="u-coord" value="Undeploy DP">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u-plugin-box" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;strokeWidth=2;fontSize=14;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;fontFamily=Helvetica;" value="Atlan Data Catalog Plugin" vertex="1">
+          <mxGeometry height="316" width="420" x="-1003" y="323" as="geometry" />
+        </mxCell>
+        <mxCell id="u-api-bar" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;strokeWidth=2;fontSize=13;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="A&lt;br&gt;P&lt;br&gt;I" vertex="1">
+          <mxGeometry height="225" width="28" x="-1003" y="414" as="geometry" />
+        </mxCell>
+        <mxCell id="u-arr-coord-plugin" edge="1" parent="1" source="u-coord" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=2;strokeColor=#6c8ebf;fontFamily=Helvetica;fontSize=13;endArrow=classic;align=center;" target="u-plugin-box" value="Data Product descriptor">
+          <mxGeometry relative="1" x="-0.1" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="-975" y="573" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="u-yaml-grp" connectable="0" parent="1" style="group;" value="" vertex="1">
+          <mxGeometry height="70" width="110" x="-1173" y="489" as="geometry" />
+        </mxCell>
+        <mxCell id="u-yaml-inner" connectable="0" parent="u-yaml-grp" style="group;fontSize=13;" value="" vertex="1">
+          <mxGeometry height="43" width="40" x="35" y="27" as="geometry" />
+        </mxCell>
+        <mxCell id="u-yaml-note" parent="u-yaml-inner" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;size=13;fontSize=13;" value="" vertex="1">
+          <mxGeometry height="43" width="40" as="geometry" />
+        </mxCell>
+        <mxCell id="u-yaml-l1" edge="1" parent="u-yaml-inner" style="endArrow=none;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="3.33" y="18.31" as="sourcePoint" />
+            <mxPoint x="36.67" y="18.31" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="u-yaml-l2" edge="1" parent="u-yaml-inner" style="endArrow=none;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="3.33" y="24.57" as="sourcePoint" />
+            <mxPoint x="36.67" y="24.57" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="u-yaml-l3" edge="1" parent="u-yaml-inner" style="endArrow=none;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="3.33" y="30.71" as="sourcePoint" />
+            <mxPoint x="36.67" y="30.71" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="u-yaml-label" parent="u-yaml-grp" style="text;html=1;align=center;verticalAlign=middle;strokeColor=none;fillColor=none;fontFamily=Helvetica;fontSize=13;" value="yaml descriptor" vertex="1">
+          <mxGeometry height="28" width="110" as="geometry" />
+        </mxCell>
+        <mxCell id="u-step1" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;align=left;fontFamily=Helvetica;fontSize=13;spacingLeft=6;" value="1 — Parse descriptor" vertex="1">
+          <mxGeometry height="42" width="370" x="-967" y="364" as="geometry" />
+        </mxCell>
+        <mxCell id="u-step2" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;align=left;fontFamily=Helvetica;fontSize=13;spacingLeft=6;" value="2 — Resolve Output Port identities" vertex="1">
+          <mxGeometry height="42" width="370" x="-967" y="416" as="geometry" />
+        </mxCell>
+        <mxCell id="u-step3" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;align=left;fontFamily=Helvetica;fontSize=13;spacingLeft=6;" value="3 — Archive / delete technical assets and columns [per Output Port]" vertex="1">
+          <mxGeometry height="42" width="370" x="-967" y="468" as="geometry" />
+        </mxCell>
+        <mxCell id="u-step6" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;align=left;fontFamily=Helvetica;fontSize=13;spacingLeft=6;" value="4 — Archive / delete DataProduct" vertex="1">
+          <mxGeometry height="42" width="370" x="-967" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="u-step7" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;align=left;fontFamily=Helvetica;fontSize=13;spacingLeft=6;" value="5 — Report outcome (ProvisioningStatus)" vertex="1">
+          <mxGeometry height="42" width="370" x="-967" y="572" as="geometry" />
+        </mxCell>
+        <mxCell id="u-atlan-platform" parent="1" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;strokeWidth=1;" value="" vertex="1">
+          <mxGeometry height="532" width="510" x="-493" y="258" as="geometry" />
+        </mxCell>
+        <mxCell id="u-atlan-title" parent="1" style="text;html=1;align=left;verticalAlign=top;strokeColor=none;fillColor=none;fontSize=17;" value="&lt;b&gt;&lt;font color=&quot;#1565c0&quot; style=&quot;font-size: 17px;&quot;&gt;ATLAN&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="120" x="-475.5" y="268" as="geometry" />
+        </mxCell>
+        <mxCell id="u-at-domain" parent="1" style="ellipse;whiteSpace=wrap;html=1;verticalAlign=top;spacingTop=10;fillColor=#bbdefb;strokeColor=#1565c0;strokeWidth=2;fontSize=13;" value="&lt;b&gt;DataDomain&lt;/b&gt; &lt;font style=&quot;font-size: 10px;&quot;&gt;(preserved)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="158" width="475" x="-475.5" y="298" as="geometry" />
+        </mxCell>
+        <mxCell id="u-at-dp" parent="1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;size=22;verticalAlign=middle;spacingTop=5;fillColor=#fff8e1;strokeColor=light-dark(#c62728, #c76108);strokeWidth=2;fontColor=#5d4037;fontSize=12;" value="&lt;b&gt;DataProduct&lt;/b&gt;" vertex="1">
+          <mxGeometry height="51" width="370" x="-423" y="351.5" as="geometry" />
+        </mxCell>
+        <mxCell id="u-at-conn" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;spacingTop=7;fillColor=#bbdefb;strokeColor=#1565c0;strokeWidth=2;fontSize=13;" value="&lt;b&gt;Connection&lt;/b&gt; &lt;font style=&quot;font-size: 10px;&quot;&gt;(preserved)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="225" width="475" x="-475.5" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="u-at-db" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;spacingTop=5;fillColor=#ffebee;strokeColor=#c62828;strokeWidth=2;fontColor=#000000;fontSize=13;" value="Database" vertex="1">
+          <mxGeometry height="170" width="445" x="-460.5" y="508" as="geometry" />
+        </mxCell>
+        <mxCell id="u-at-schema" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;spacingTop=5;fillColor=#ffebee;strokeColor=#c62828;strokeWidth=2;fontColor=#000000;fontSize=13;" value="Schema" vertex="1">
+          <mxGeometry height="122" width="415" x="-445.5" y="543" as="geometry" />
+        </mxCell>
+        <mxCell id="u-at-table" parent="1" style="shape=internalStorage;whiteSpace=wrap;html=1;backgroundOutline=1;verticalAlign=middle;spacingTop=5;fillColor=#ffebee;strokeColor=#c62828;strokeWidth=2;fontColor=#000000;fontSize=13;" value="Table / View" vertex="1">
+          <mxGeometry height="76" width="385" x="-430.5" y="578" as="geometry" />
+        </mxCell>
+        <mxCell id="u-at-gloss1" parent="1" style="shape=tape;whiteSpace=wrap;html=1;size=0.2;fontSize=12;fillColor=#9673a6;strokeColor=#4a148c;fontColor=#ffffff;" value="GlossaryTerm" vertex="1">
+          <mxGeometry height="22" width="210" x="-435.5" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="u-at-gloss2" parent="1" style="shape=tape;whiteSpace=wrap;html=1;size=0.2;fontSize=12;fillColor=#9673a6;strokeColor=#4a148c;fontColor=#ffffff;" value="GlossaryTerm" vertex="1">
+          <mxGeometry height="22" width="210" x="-225.5" y="734" as="geometry" />
+        </mxCell>
+        <mxCell id="u-arr-step5-table" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=2;strokeColor=#c62828;endArrow=open;curved=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="u-at-table" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-597" y="489" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="u-arr-step6-dp" edge="1" parent="1" source="u-step6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=2;strokeColor=light-dark(#c62728, #c76108);endArrow=open;curved=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="u-at-dp" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u-arr-callout-conf" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=1;strokeColor=#999999;dashed=1;endArrow=none;" target="u-step6" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-578" y="536.5" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kgQmHnFfxkj4X9gbu9E--1" parent="1" style="shape=wedgeCallout;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;text-align: left;&quot;&gt;Connection, DataDomain, GlossaryTerms are &lt;/span&gt;&lt;b style=&quot;text-align: left;&quot;&gt;never deleted&lt;/b&gt;&lt;span style=&quot;text-align: left;&quot;&gt; — they may be shared across Data Products&lt;/span&gt;" vertex="1">
+          <mxGeometry height="78" width="255" x="-83" y="190" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="atlan-validation" name="Validation">
+    <mxGraphModel dx="2054" dy="1136" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1640" pageHeight="980" background="light-dark(#ffffff, #121212)" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="v-dp-team" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.user;" value="DP team" vertex="1">
+          <mxGeometry height="78" width="78" x="137" y="327" as="geometry" />
+        </mxCell>
+        <mxCell id="v-wb-box" parent="1" style="rounded=0;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Helvetica;fontSize=16;verticalAlign=middle;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" value="Witboost" vertex="1">
+          <mxGeometry height="60" width="200" x="337" y="336" as="geometry" />
+        </mxCell>
+        <mxCell id="v-arr-dp-wb" edge="1" parent="1" source="v-dp-team" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=2;strokeColor=#d6b656;fontFamily=Helvetica;fontSize=13;endArrow=classic;" target="v-wb-box" value="Validate DP">
+          <mxGeometry relative="1" x="-0.2" y="-25" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="v-coord" parent="1" style="whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=16;fillColor=#fff2cc;strokeColor=#d6b656;rounded=0;hachureGap=4;" value="Provisioning Coordinator" vertex="1">
+          <mxGeometry height="110" width="200" x="337" y="477" as="geometry" />
+        </mxCell>
+        <mxCell id="v-arr-wb-coord" edge="1" parent="1" source="v-wb-box" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=1;strokeColor=#d6b656;fontFamily=Helvetica;fontSize=13;endArrow=classic;" target="v-coord" value="Validate DP">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="v-plugin-box" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;strokeWidth=2;fontSize=14;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;fontFamily=Helvetica;" value="Atlan Data Catalog Plugin" vertex="1">
+          <mxGeometry height="265" width="420" x="737" y="312" as="geometry" />
+        </mxCell>
+        <mxCell id="v-api-bar" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;strokeWidth=2;fontSize=13;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="A&lt;br&gt;P&lt;br&gt;I" vertex="1">
+          <mxGeometry height="200" width="28" x="737" y="377" as="geometry" />
+        </mxCell>
+        <mxCell id="v-arr-coord-plugin" edge="1" parent="1" source="v-coord" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeWidth=2;strokeColor=#6c8ebf;fontFamily=Helvetica;fontSize=13;endArrow=classic;align=center;" target="v-plugin-box" value="Data Product descriptor">
+          <mxGeometry relative="1" x="-0.1" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="765" y="532" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="v-yaml-grp" connectable="0" parent="1" style="group;" value="" vertex="1">
+          <mxGeometry height="70" width="110" x="567" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="v-yaml-inner" connectable="0" parent="v-yaml-grp" style="group;fontSize=13;" value="" vertex="1">
+          <mxGeometry height="43" width="40" x="35" y="27" as="geometry" />
+        </mxCell>
+        <mxCell id="v-yaml-note" parent="v-yaml-inner" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;size=13;fontSize=13;" value="" vertex="1">
+          <mxGeometry height="43" width="40" as="geometry" />
+        </mxCell>
+        <mxCell id="v-yaml-l1" edge="1" parent="v-yaml-inner" style="endArrow=none;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="3.33" y="18.31" as="sourcePoint" />
+            <mxPoint x="36.67" y="18.31" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="v-yaml-l2" edge="1" parent="v-yaml-inner" style="endArrow=none;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="3.33" y="24.57" as="sourcePoint" />
+            <mxPoint x="36.67" y="24.57" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="v-yaml-l3" edge="1" parent="v-yaml-inner" style="endArrow=none;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="3.33" y="30.71" as="sourcePoint" />
+            <mxPoint x="36.67" y="30.71" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="v-yaml-label" parent="v-yaml-grp" style="text;html=1;align=center;verticalAlign=middle;strokeColor=none;fillColor=none;fontFamily=Helvetica;fontSize=13;" value="yaml descriptor" vertex="1">
+          <mxGeometry height="28" width="110" as="geometry" />
+        </mxCell>
+        <mxCell id="v-step1" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;align=left;fontFamily=Helvetica;fontSize=13;spacingLeft=6;" value="1 — Parse descriptor" vertex="1">
+          <mxGeometry height="42" width="370" x="773" y="377" as="geometry" />
+        </mxCell>
+        <mxCell id="v-step2" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;align=left;fontFamily=Helvetica;fontSize=13;spacingLeft=6;" value="2 — Validate structure &amp; completeness" vertex="1">
+          <mxGeometry height="42" width="370" x="773" y="431" as="geometry" />
+        </mxCell>
+        <mxCell id="v-step3" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;align=left;fontFamily=Helvetica;fontSize=13;spacingLeft=6;" value="3 — Return ValidationResult" vertex="1">
+          <mxGeometry height="42" width="370" x="773" y="485" as="geometry" />
+        </mxCell>
+        <mxCell id="v-callout" parent="1" style="shape=callout;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=13;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#333333;align=center;" value="No Atlan API calls" vertex="1">
+          <mxGeometry height="80" width="171" x="1058" y="249" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

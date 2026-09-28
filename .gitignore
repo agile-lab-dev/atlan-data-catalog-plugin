@@ -1,0 +1,37 @@
+# macOS
+.DS_Store
+
+# IntelliJ
+.idea/
+*.iml
+
+# Visual Studio Code
+.vscode/
+.vsls.json
+
+#Drawio bkp
+*.drawio.bkp
+
+**/.python-version
+__pycache__/
+.coverage
+*.xml
+
+# Local developments
+tech-adapter/.env
+tech-adapter/config/application.yaml
+Dockerfile.local
+
+# AI toolkit used to develop this tech adapter (local-only).
+.witboost/
+.github/agents/
+.github/skills/
+docs/decisions/
+ai-context/
+
+
+### HELM ###
+helm/charts
+# local samples filled in with credentials
+helm/**/*-filled.yaml
+

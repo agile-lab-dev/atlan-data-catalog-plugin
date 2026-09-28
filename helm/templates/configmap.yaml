@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+{{- include "pythonta.labels" . | nindent 4 }}
+  name: {{ template "pythonta.fullname" . }}-config
+data:
+  application.yaml: |
+  {{- if .Values.configOverride -}}
+  {{- .Values.configOverride | nindent 4 }}
+  {{- else -}}
+  {{- .Files.Get "files/application.yaml" | nindent 4 }}
+  {{- end }}
